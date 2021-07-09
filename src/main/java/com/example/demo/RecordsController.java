@@ -20,10 +20,10 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import javassist.NotFoundException;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping(value="/rec")
-
 public class RecordsController {
 
 	@Autowired
@@ -42,10 +42,35 @@ public class RecordsController {
 				);
 	}
 	
+//	@GetMapping
+//	public List<Records> getAllRecords(){
+//		return repo.findAll();
+//	}
+
+	
 	@GetMapping(value="{aid}")
 	public Records getRecordById(@PathVariable(value="aid") Long aid) {
 		return repo.findById(aid).get();
 	}
+	
+	@GetMapping("/firstname")
+	public List<Records> findFname(@RequestParam String fname) {
+		return repo.findByFname(fname);
+	}
+	
+	@GetMapping("/lastname")
+	public List<Records> findLname(@RequestParam String lname) {
+		return repo.findByLname(lname);
+	}
+	
+	@GetMapping("/pincode")
+	public List<Records> findPincode(@RequestParam Long pincode) {
+		return repo.findByPincode(pincode);
+	}
+	
+	
+	
+	
 	
 	@PostMapping
 	public Records addRecords(@RequestBody Records records) {
@@ -58,6 +83,11 @@ public class RecordsController {
 	        super(s);
 	    }
 	}
+	
+	
+	
+	
+	
 	
 	@PutMapping
 	public Records updateRecord(@RequestBody Records records) throws NotFoundException {
@@ -78,6 +108,10 @@ public class RecordsController {
 	    
 	    return repo.save(existingRecord);
 	}
+	
+	
+	
+	
 	
 	@DeleteMapping(value = "{aid}")
 	public void deleteRecordsById(@PathVariable(value = "aid") Long aid) throws NotFoundException {

@@ -29,7 +29,7 @@ public class Records {
 	private String lname;
 
 	@NonNull
-	private String pincode;
+	private Long pincode;
 	
 	@NonNull
 	private String DOB;

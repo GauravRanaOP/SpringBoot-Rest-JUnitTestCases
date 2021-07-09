@@ -38,9 +38,9 @@ public class RecordsControllerTest {
     @MockBean
     RecordsRepo repo;
     
-    Records RECORD_1 = new Records(1l, "Gaurav", "Rana", "110085", "1998-05-22", "2021-06-24");
-    Records RECORD_2 = new Records(2l, "Sahil", "Joshi", "110089", "1997-12-04", "2021-05-13" );
-    Records RECORD_3 = new Records(3l, "Sachin", "Rawat", "123456", "1996-11-26", "2020-11-25");
+    Records RECORD_1 = new Records(1l, "Gaurav", "Rana", 110085l, "1998-05-22", "2021-06-24");
+    Records RECORD_2 = new Records(2l, "Sahil", "Joshi", 110089l, "1997-12-04", "2021-05-13" );
+    Records RECORD_3 = new Records(3l, "Sachin", "Rawat", 123456l, "1996-11-26", "2020-11-25");
     
     
     //Get test case
@@ -75,7 +75,7 @@ public class RecordsControllerTest {
         Records record = Records.builder()
                 .fname("Umang")
                 .lname("Sahu")
-                .pincode("112233")
+                .pincode(112233l)
                 .DOB("1999-03-07")
                 .DateOfJoining("2021-06-15")
                 .build();
@@ -101,7 +101,7 @@ public class RecordsControllerTest {
         		.aid(1l)
                 .fname("Gaurav")
                 .lname("Rana")
-                .pincode("110085")
+                .pincode(110085l)
                 .DOB("1998-05-22")
                 .DateOfJoining("2021-06-24")
                 .build();
@@ -125,7 +125,7 @@ public class RecordsControllerTest {
         Records updatedRecord= Records.builder()
                 .fname("Saurav")
                 .lname("Rana")
-                .pincode("110085")
+                .pincode(110085l)
                 .DOB("1999-04-21")
                 .DateOfJoining("2021-06-24")
                 .build();
@@ -142,7 +142,7 @@ public class RecordsControllerTest {
                 .aid(5l)
                 .fname("Saurav")
                 .lname("Rana")
-                .pincode("110085")
+                .pincode(110085l)
                 .DOB("1999-04-21")
                 .DateOfJoining("2021-06-24")
                 .build();
